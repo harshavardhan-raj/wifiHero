@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wifiHERO Admin Console</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background elements for visual polish -->
+    <div class="glass-bg-glow glow-1"></div>
+    <div class="glass-bg-glow glow-2"></div>
+
+    <!-- Login Container -->
+    <div id="login-container" class="card glass-card fade-in">
+        <div class="login-header">
+            <div class="logo-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h1>wifiHERO</h1>
+            <p>Enter administrative credential to access portal</p>
+        </div>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
+                <input type="password" id="password" placeholder="Enter admin password" required autocomplete="current-password">
+                <span class="toggle-password" id="toggle-password">
+                    <i class="fa-regular fa-eye"></i>
+                </span>
+            </div>
+            <div id="login-error" class="error-msg hidden">
+                <i class="fa-solid fa-circle-exclamation"></i> Incorrect password. Please try again.
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <span>Login Securely</span> <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Dashboard Container (Hidden by default) -->
+    <div id="dashboard-container" class="hidden container">
+        <header class="dashboard-header fade-in">
+            <div class="header-left">
+                <div class="logo-title">
+                    <div class="logo-mini">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div>
+                        <h1>wifiHERO Admin</h1>
+                        <p class="subtitle">Control Room & WiFi configurations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <span class="status-badge"><i class="fa-solid fa-shield-halved"></i> Encrypted Session</span>
+                <button id="logout-btn" class="btn btn-secondary">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Left Panel: Configuration Form -->
+            <div class="grid-col-left fade-in">
+                <!-- WiFi Profile Panel -->
+                <div class="card glass-card mb-4">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-wifi"></i> WiFi Profile Settings</h2>
+                        <p>Configure the default SSID prefixes and credentials</p>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="ssid-prefix">SSID Prefix</label>
+                        <input type="text" id="ssid-prefix" placeholder="e.g. Amrita" required>
+                        <small class="form-help">This is common for all rooms (e.g. "Amrita" in "Amrita-2.4G-101")</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <label>WiFi Bands</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="band-24" checked>
+                                    <span class="checkmark"></span>
+                                    2.4G
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="band-5" checked>
+                                    <span class="checkmark"></span>
+                                    5G
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="wifi-security">Security Type</label>
+                            <select id="wifi-security">
+                                <option value="WPA2" selected>WPA2-PSK (Standard)</option>
+                                <option value="WPA3">WPA3-PSK</option>
+                                <option value="NONE">None (Open)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="wifi-password">WiFi Password</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="wifi-password" placeholder="WiFi Password" required>
+                            <i class="fa-solid fa-key input-icon"></i>
+                        </div>
+                        <small class="form-help">The common password across all hostel access points</small>
+                    </div>
+                </div>
+
+                <!-- Floors & Rooms Range Panel -->
+                <div class="card glass-card mb-4">
+                    <div class="card-header d-flex justify-between align-center">
+                        <div>
+                            <h2><i class="fa-solid fa-layer-group"></i> Floor & Room Ranges</h2>
+                            <p>Manage floors and room boundaries</p>
+                        </div>
+                        <button type="button" id="add-floor-btn" class="btn btn-outline btn-sm">
+                            <i class="fa-solid fa-plus"></i> Add Floor
+                        </button>
+                    </div>
+
+                    <div id="floors-container">
+                        <!-- Floor rows will be added dynamically by script.js -->
+                    </div>
+                </div>
+
+                <!-- App Updates Panel -->
+                <div class="card glass-card mb-4">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-circle-up"></i> App Update Configuration</h2>
+                        <p>Configure client updates and notifications</p>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="app-version">Latest Version Code</label>
+                        <input type="text" id="app-version" placeholder="e.g. 1.0.0" required>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="apk-url">APK Download URL</label>
+                        <input type="url" id="apk-url" placeholder="https://github.com/username/repo/releases/download/v1.0.0/app-release.apk">
+                        <small class="form-help">Direct link to the sideloadable APK (usually GitHub Release download link)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="update-changelog">Release Changelog</label>
+                        <textarea id="update-changelog" rows="3" placeholder="What's new in this release..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Live Preview & Export -->
+            <div class="grid-col-right fade-in">
+                <!-- Action Card -->
+                <div class="card glass-card accent-card mb-4">
+                    <div class="card-header">
+                        <h2 class="text-white"><i class="fa-solid fa-wand-magic-sparkles"></i> Actions Console</h2>
+                        <p class="text-secondary">Generate and deploy your configuration changes</p>
+                    </div>
+                    
+                    <div class="actions-grid">
+                        <button id="btn-generate-json" class="btn btn-primary">
+                            <i class="fa-solid fa-code"></i> Generate JSON
+                        </button>
+                        <button id="btn-download-config" class="btn btn-success">
+                            <i class="fa-solid fa-download"></i> Download File
+                        </button>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <button id="btn-copy-config" class="btn btn-outline btn-block">
+                            <i class="fa-solid fa-copy"></i> Copy to Clipboard
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Statistics Panel -->
+                <div class="stats-row mb-4">
+                    <div class="stat-card glass-card">
+                        <span class="stat-label">Total Floors</span>
+                        <span id="stat-floors" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-label">Total Rooms</span>
+                        <span id="stat-rooms" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <span class="stat-label">WiFi SSIDs</span>
+                        <span id="stat-ssids" class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <!-- Preview JSON Config Panel -->
+                <div class="card glass-card mb-4 flex-grow-1">
+                    <div class="card-header d-flex justify-between align-center">
+                        <div>
+                            <h2><i class="fa-solid fa-square-poll-horizontal"></i> Config Preview (JSON)</h2>
+                            <p>Copy this content into your <code>wifi-config.json</code> on GitHub</p>
+                        </div>
+                    </div>
+                    <div class="code-container">
+                        <pre><code id="json-preview">// Click Generate JSON to populate</code></pre>
+                    </div>
+                </div>
+
+                <!-- SSID List Expandable Preview -->
+                <div class="card glass-card mb-4">
+                    <div class="card-header d-flex justify-between align-center cursor-pointer" id="ssid-list-header">
+                        <div>
+                            <h2><i class="fa-solid fa-list-ol"></i> Generated SSID Preview</h2>
+                            <p>Click to toggle full list of SSIDs to check accuracy</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-down toggle-icon" id="ssid-list-icon"></i>
+                    </div>
+                    <div id="ssid-list-container" class="collapsed font-mono">
+                        <div class="ssid-search-box mb-2">
+                            <input type="text" id="ssid-search" placeholder="Search SSIDs...">
+                        </div>
+                        <div id="ssid-list" class="ssid-badges-container">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden">
+        <i id="toast-icon" class="fa-solid fa-circle-check"></i>
+        <span id="toast-msg">Configuration copied successfully!</span>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 wifiHERO System. Secure administrative portal.</p>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+</body>
+</html>

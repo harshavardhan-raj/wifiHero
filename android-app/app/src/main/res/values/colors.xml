@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Premium Dark Theme Color Palette -->
+    <color name="background">#0A0A0F</color>
+    <color name="surface">#161622</color>
+    <color name="surface_variant">#212135</color>
+    
+    <color name="primary">#8A2BE2</color>
+    <color name="primary_variant">#9D42F5</color>
+    <color name="primary_container">#25163F</color>
+    <color name="primary_glow">#4C8A2BE2</color>
+    
+    <color name="secondary">#00F2FE</color>
+    <color name="secondary_container">#0E2D38</color>
+    
+    <color name="success">#00E676</color>
+    <color name="success_container">#0D381E</color>
+    
+    <color name="error">#FF1744</color>
+    <color name="error_container">#38111A</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#9E9EB8</color>
+    <color name="text_muted">#61617A</color>
+    
+    <!-- Card Border -->
+    <color name="border_color">#1AFFFFFF</color>
+</resources>

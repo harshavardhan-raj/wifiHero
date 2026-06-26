@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-06-26T19:00:00+05:30",
+  "wifiNetworks": [
+    {
+      "id": "amrita-hostel",
+      "name": "Amrita Hostel WiFi",
+      "ssidPrefix": "Amrita",
+      "bands": ["2.4G", "5G"],
+      "password": "Amrita@2024",
+      "security": "WPA2",
+      "floors": [
+        { "floor": 1, "startRoom": 101, "endRoom": 130 },
+        { "floor": 2, "startRoom": 201, "endRoom": 230 },
+        { "floor": 3, "startRoom": 301, "endRoom": 330 },
+        { "floor": 4, "startRoom": 401, "endRoom": 430 },
+        { "floor": 5, "startRoom": 501, "endRoom": 530 },
+        { "floor": 6, "startRoom": 601, "endRoom": 630 },
+        { "floor": 7, "startRoom": 701, "endRoom": 730 },
+        { "floor": 8, "startRoom": 801, "endRoom": 830 },
+        { "floor": 9, "startRoom": 901, "endRoom": 930 },
+        { "floor": 10, "startRoom": 1001, "endRoom": 1030 }
+      ]
+    }
+  ],
+  "appUpdate": {
+    "latestVersion": "1.0.0",
+    "apkUrl": "",
+    "changelog": "Initial release — one-tap WiFi registration for all hostel rooms"
+  }
+}
