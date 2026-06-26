@@ -30,7 +30,7 @@ jobs:
         working-directory: android-app
 
       - name: Grant Execute Permission to Gradlew
-        run: chmod +x android-app/gradlew
+        run: chmod +x gradlew
         working-directory: android-app
 
       - name: Build Debug APK
