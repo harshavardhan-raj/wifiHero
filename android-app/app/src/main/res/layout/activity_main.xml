@@ -13,16 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        app:layout_topToTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottomtoBottomOf="parent"
-            app:layout_constraintEndToStartOf="@id/btn_settings"
-            app:layout_constraintStartToStartOf="parent"
-            app:layout_constraintTopToTopOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_settings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -48,9 +48,9 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/btn_settings"
             android:src="@android:drawable/ic_menu_preferences"
-            app:layout_constraintBottomtoBottomOf="parent"
-            app:layout_constraintEndToEndOf="parent"
-            app:layout_constraintTopToTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/text_secondary" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

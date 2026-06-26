@@ -7,6 +7,8 @@
     <string name="card_status_title">System Status</string>
     <string name="label_registered_networks">Registered SSIDs</string>
     <string name="label_config_version">Config Version</string>
+    <string name="status_registered">Registered</string>
+    <string name="status_not_registered">Not Registered</string>
     
     <string name="btn_register_all">Connect All Rooms</string>
     <string name="btn_unregister_all">Clear All WiFi Suggestions</string>

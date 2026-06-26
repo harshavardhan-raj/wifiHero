@@ -14,3 +14,7 @@ local.properties
 # OS files
 .DS_Store
 Thumbs.db
+
+# Scratch files
+download_apk.ps1
+build_log.txt
