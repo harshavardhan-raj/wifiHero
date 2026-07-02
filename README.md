@@ -1,4 +1,4 @@
-# wifiHERO ⚡
+# wifiHERO 
 
 A premium, secure hostel WiFi auto-connector and roaming manager for Android. 
 
@@ -14,7 +14,7 @@ wifiHERO solves the annoying problem of having to repeatedly type the WiFi passw
 
 ---
 
-## 🚀 Setup Instructions for the Administrator (You!)
+##  Setup Instructions for the Administrator (You!)
 
 ### Step 1: Create a GitHub Repository
 1. Go to [GitHub](https://github.com) and create a **public** repository named `wifihero` (or any name you prefer).
@@ -45,7 +45,7 @@ wifiHERO solves the annoying problem of having to repeatedly type the WiFi passw
 
 ---
 
-## 🛠️ How to Compile the APK (Automated via CI/CD)
+##  How to Compile the APK (Automated via CI/CD)
 
 You **do not need Android Studio** or Gradle installed on your computer. GitHub will build the APK for you for free!
 
@@ -59,7 +59,7 @@ You **do not need Android Studio** or Gradle installed on your computer. GitHub 
 
 ---
 
-## 📱 User Instructions (How Students Install & Use)
+##  User Instructions (How Students Install & Use)
 
 1. **Install the APK**:
    - Download the APK on your Android phone.
@@ -76,7 +76,7 @@ You **do not need Android Studio** or Gradle installed on your computer. GitHub 
 
 ---
 
-## 🔐 Administrative Password
+##  Administrative Password
 
 The Admin Web Panel is protected with a password.
 - **Default password**: `harshaThe legend@123`
